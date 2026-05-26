@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/add")
 public class AddController {
 
-    private AddService addService;
+  private AddService addService;
 
-    @GetMapping
-    public int add(@RequestParam String a, @RequestParam String b){
-        return addService.add(a,b);
-    }
-
-
+  @GetMapping
+  public int add(@RequestParam String a, @RequestParam String b) {
+    return addService.add(a, b);
+  }
 }
