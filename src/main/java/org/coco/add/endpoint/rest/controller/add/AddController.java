@@ -17,7 +17,11 @@ public class AddController {
   private final AddService addService;
 
   @GetMapping
-  public ResponseEntity<?> add(@RequestParam String a, @RequestParam String b) {
+  public ResponseEntity<?> add(
+      @RequestParam(required = false) String a, @RequestParam(required = false) String b) {
+    if (a == null || b == null) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("A and B params are required!");
+    }
     try {
       return ResponseEntity.ok(addService.add(a, b));
     } catch (RuntimeException e) {
