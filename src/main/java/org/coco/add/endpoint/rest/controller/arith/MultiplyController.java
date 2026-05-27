@@ -20,7 +20,7 @@ public class MultiplyController {
   public ResponseEntity<?> multiply(
       @RequestParam(required = false) String a, @RequestParam(required = false) String b) {
     if (a == null || b == null) {
-      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("A and B params are required!");
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Both amounts are required!");
     }
     try {
       return ResponseEntity.ok(multiplyService.multiply(a, b));

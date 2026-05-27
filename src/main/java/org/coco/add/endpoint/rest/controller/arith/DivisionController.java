@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/division")
+@RequestMapping("/divide")
 @AllArgsConstructor
 public class DivisionController {
 
@@ -20,7 +20,7 @@ public class DivisionController {
   public ResponseEntity<?> divide(
       @RequestParam(required = false) String a, @RequestParam(required = false) String b) {
     if (a == null || b == null) {
-      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("A and B params are required!");
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Both amounts are required!");
     }
     try {
       return ResponseEntity.ok(divisionService.divide(a, b));
