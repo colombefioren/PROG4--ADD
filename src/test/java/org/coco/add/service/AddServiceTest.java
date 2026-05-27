@@ -92,5 +92,4 @@ class AddServiceTest extends FacadeIT {
     var b = "2";
     assertThrows(IllegalArgumentException.class, () -> addService.add(a, b));
   }
-
 }
