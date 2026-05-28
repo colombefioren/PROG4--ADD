@@ -23,7 +23,7 @@ public class SubtractController {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Both amounts are required!");
     }
     try {
-      return ResponseEntity.ok(subtractService.subtract(a, b));
+      return ResponseEntity.ok(subtractService.subtract(Long.parseLong(a), Long.parseLong(b)));
     } catch (RuntimeException e) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }

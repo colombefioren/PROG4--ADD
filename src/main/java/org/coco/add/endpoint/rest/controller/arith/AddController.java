@@ -23,7 +23,7 @@ public class AddController {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Both amounts are required!");
     }
     try {
-      return ResponseEntity.ok(addService.add(a, b));
+      return ResponseEntity.ok(addService.add(Long.parseLong(a), Long.parseLong(b)));
     } catch (RuntimeException e) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }

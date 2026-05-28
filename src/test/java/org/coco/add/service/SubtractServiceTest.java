@@ -12,84 +12,25 @@ class SubtractServiceTest extends FacadeIT {
 
   @Test
   void should_remove_money_from_wallet() {
-    var a = "10";
-    var b = "4";
+    var a = 10L;
+    var b = 4L;
     assertEquals(6, subtractService.subtract(a, b));
   }
 
   @Test
-  void should_throw_when_invalid_numbers() {
-    var a = "invalid";
-    var b = "3";
-    var e = assertThrows(IllegalArgumentException.class, () -> subtractService.subtract(a, b));
-    assertEquals("Insert valid numbers", e.getMessage());
-  }
-
-  @Test
-  void should_throw_when_null() {
-    String a = null;
-    String b = null;
-    var e = assertThrows(IllegalArgumentException.class, () -> subtractService.subtract(a, b));
-    assertEquals("A and B cannot be null", e.getMessage());
-  }
-
-  @Test
   void should_throw_when_values_negative() {
-    var a = "-1";
-    var b = "10";
+    var a = -1L;
+    var b = 10L;
     var e = assertThrows(IllegalArgumentException.class, () -> subtractService.subtract(a, b));
     assertEquals("A and B should be positive", e.getMessage());
   }
 
   @Test
   void should_throw_when_only_b_negative() {
-    var a = "5";
-    var b = "-3";
+    var a = 5L;
+    var b = -3L;
     var e = assertThrows(IllegalArgumentException.class, () -> subtractService.subtract(a, b));
     assertEquals("A and B should be positive", e.getMessage());
   }
 
-  @Test
-  void should_return_difference_when_values_have_leading_trailing_spaces() {
-    var a = " 10 ";
-    var b = " 4 ";
-    assertEquals(6, subtractService.subtract(a, b));
-  }
-
-  @Test
-  void should_throw_when_empty_string() {
-    var a = "";
-    var b = "5";
-    assertThrows(IllegalArgumentException.class, () -> subtractService.subtract(a, b));
-  }
-
-  @Test
-  void should_throw_when_whitespace_only() {
-    var a = "   ";
-    var b = "5";
-    assertThrows(IllegalArgumentException.class, () -> subtractService.subtract(a, b));
-  }
-
-  @Test
-  void should_throw_when_a_null() {
-    String a = null;
-    var b = "5";
-    var e = assertThrows(IllegalArgumentException.class, () -> subtractService.subtract(a, b));
-    assertEquals("A and B cannot be null", e.getMessage());
-  }
-
-  @Test
-  void should_throw_when_b_null() {
-    var a = "5";
-    String b = null;
-    var e = assertThrows(IllegalArgumentException.class, () -> subtractService.subtract(a, b));
-    assertEquals("A and B cannot be null", e.getMessage());
-  }
-
-  @Test
-  void should_throw_when_decimal_strings() {
-    var a = "3.5";
-    var b = "2";
-    assertThrows(IllegalArgumentException.class, () -> subtractService.subtract(a, b));
-  }
 }

@@ -23,7 +23,7 @@ public class DivisionController {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Both amounts are required!");
     }
     try {
-      return ResponseEntity.ok(divisionService.divide(a, b));
+      return ResponseEntity.ok(divisionService.divide(Long.parseLong(a), Long.parseLong(b)));
     } catch (RuntimeException e) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }

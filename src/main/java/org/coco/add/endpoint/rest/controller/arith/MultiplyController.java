@@ -23,7 +23,7 @@ public class MultiplyController {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Both amounts are required!");
     }
     try {
-      return ResponseEntity.ok(multiplyService.multiply(a, b));
+      return ResponseEntity.ok(multiplyService.multiply(Long.parseLong(a), Long.parseLong(b)));
     } catch (RuntimeException e) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }
