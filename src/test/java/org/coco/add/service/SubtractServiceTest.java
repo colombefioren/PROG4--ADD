@@ -32,5 +32,4 @@ class SubtractServiceTest extends FacadeIT {
     var e = assertThrows(IllegalArgumentException.class, () -> subtractService.subtract(a, b));
     assertEquals("A and B should be positive", e.getMessage());
   }
-
 }
